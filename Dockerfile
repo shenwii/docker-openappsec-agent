@@ -29,6 +29,8 @@ RUN apk add --no-cache \
 
 FROM docker.io/alpine
 
+ENV OPENAPPSEC_NANO_AGENT=TRUE
+
 COPY --from=builder /build_out/self_managed_openappsec_manifest.json /tmp/self_managed_openappsec_manifest.json
 COPY --from=builder /build_out/install*.sh /nano-service-installers/
 COPY --from=builder /build_out/entry.sh /entry.sh
